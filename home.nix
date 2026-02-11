@@ -24,6 +24,7 @@
   
   home.sessionVariables = {
   TERM = "xterm";
+  TMUX_AUTO_START = "1";
   };
 
 ###########################################
@@ -44,6 +45,10 @@
     HISTSIZE=10000
     SAVEHIST=10000
     setopt appendhistory
+
+    if [ -z "$TMUX" ] && command -v tmux &> /dev/null; then
+      tmux attach -t main || tmux new -s main
+    fi
   '';
  };
  
