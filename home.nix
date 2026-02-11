@@ -4,7 +4,6 @@
 {
   home.username = "ronald";
   home.homeDirectory = "/home/ronald";
-
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
     oh-my-posh
@@ -30,14 +29,12 @@
 ###########################################
  programs.zsh = {
   enable = true;
-  defaultShell = true;
-
   enableCompletion = true;
   autosuggestion.enable = true;
   syntaxHighlighting.enable = true;
   
   initExtra = ''
-    eval "$(oh-my-posh init zsh --config ${HOME}/.poshthemes/easy-term.omp.json)"
+    eval "$(oh-my-posh init zsh --config ${config.home.homeDirectory}/.poshthemes/easy-term.omp.json)"
     bindkey "^[[1;3D" backward-word
     bindkey "^[[1;3C" forward-word
     bindkey  "^[[H"   beginning-of-line
@@ -79,7 +76,6 @@
     enable = true;
   };
 ###############################################
-
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }
