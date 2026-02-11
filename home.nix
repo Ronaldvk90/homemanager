@@ -18,7 +18,7 @@
     ".config/sway/config".source = ./configs/sway/config;
     ".config/foot/foot.ini".source = ./configs/foot/foot.ini;
     ".config/swaybar/swaybar.sh".source = ./configs/swaybar/swaybar.sh;
-    ".tmux.conf".source = ./configs/tmux.conf;
+    ".tmux.conf".source = ./configs/tmux/tmux.conf;
     ".poshthemes/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
     ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
