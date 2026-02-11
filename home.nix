@@ -47,8 +47,17 @@
     SAVEHIST=10000
     setopt appendhistory
 
+    #if [ -z "$TMUX" ] && command -v tmux &> /dev/null; then
+    #  tmux attach -t main || tmux new -s main
+    #fi
+
     if [ -z "$TMUX" ] && command -v tmux &> /dev/null; then
-      tmux attach -t main || tmux new -s main
+    sessions=$(tmux ls 2>/dev/null)
+      if [ -z "$sessions" ]; then
+          exec tmux new -s main
+      else
+          exec tmux attach
+      fi
     fi
   '';
  };
