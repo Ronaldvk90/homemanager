@@ -20,6 +20,7 @@
     ".config/swaybar/swaybar.sh".source = ./configs/swaybar/swaybar.sh;
     ".tmux.conf".source = ./configs/tmux.conf;
     ".poshthemes/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
+    ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
   
   home.sessionVariables = {
