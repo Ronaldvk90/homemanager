@@ -7,6 +7,7 @@
 
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
+    oh-my-posh
     gzdoom
     dosbox
     steam
@@ -19,29 +20,36 @@
     ".config/foot/foot.ini".source = ./configs/foot/foot.ini;
     ".config/swaybar/swaybar.sh".source = ./configs/swaybar/swaybar.sh;
     ".tmux.conf".source = ./configs/tmux.conf;
+    ".poshthemes/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
   };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/ronald/etc/profile.d/hm-session-vars.sh
-  #
+  
   home.sessionVariables = {
   TERM = "xterm";
   };
 
 ###########################################
+ programs.zsh = {
+  enable = true;
+  defaultShell = true;
+
+  enableCompletion = true;
+  autosuggestion.enable = true;
+  syntaxHighlighting.enable = true;
+  
+  initExtra = ''
+    eval "$(oh-my-posh init zsh --config ${HOME}/.poshthemes/easy-term.omp.json)"
+    bindkey "^[[1;3D" backward-word
+    bindkey "^[[1;3C" forward-word
+    bindkey  "^[[H"   beginning-of-line
+    bindkey  "^[[F"   end-of-line
+
+    HISTFILE=~/.zsh_history
+    HISTSIZE=10000
+    SAVEHIST=10000
+    setopt appendhistory
+  '';
+ };
+ 
  programs.git = {
     package = pkgs.git;
     enable = true;
