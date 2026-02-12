@@ -12,6 +12,9 @@
     steam
     dvdplusrwtools
     cdrtools
+    libreoffice
+    _1password-cli
+    _1password-gui
   ];
 
   home.file = {
@@ -29,6 +32,7 @@
   };
 
 ###########################################
+
  programs.zsh = {
   enable = true;
   enableCompletion = true;
@@ -90,6 +94,7 @@
   programs.tmate = {
     enable = true;
   };
+
 ###############################################
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
