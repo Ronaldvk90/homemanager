@@ -46,12 +46,20 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   };
 
 ###########################################
+  programs.vim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [ vim-airline ];
+    settings = { ignorecase = true; };
+    extraConfig = ''
+      set mouse=a
+    '';
+  };
 
- programs.zsh = {
-  enable = true;
-  enableCompletion = true;
-  autosuggestion.enable = true;
-  syntaxHighlighting.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
   
   initExtra = ''
     eval "$(oh-my-posh init zsh --config ${config.home.homeDirectory}/.poshthemes/easy-term.omp.json)"
@@ -65,10 +73,6 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     SAVEHIST=10000
     setopt appendhistory
 
-    #if [ -z "$TMUX" ] && command -v tmux &> /dev/null; then
-    #  tmux attach -t main || tmux new -s main
-    #fi
-
     if [ -z "$TMUX" ] && command -v tmux &> /dev/null; then
     sessions=$(tmux ls 2>/dev/null)
       if [ -z "$sessions" ]; then
@@ -78,9 +82,9 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
       fi
     fi
   '';
- };
+  };
  
- programs.git = {
+  programs.git = {
     package = pkgs.git;
     enable = true;
     settings.user.name = "Ronald van Kouwen";
@@ -89,7 +93,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
 
   };
 
- programs.tmux = {
+  programs.tmux = {
     enable = true;
     shortcut = "a";
     baseIndex = 1;
