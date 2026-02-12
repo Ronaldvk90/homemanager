@@ -22,6 +22,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     oh-my-posh
     gzdoom
     dosbox
+    pcsx2
     steam
     dvdplusrwtools
     cdrtools
