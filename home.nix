@@ -43,7 +43,6 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   
   home.sessionVariables = {
   TERM = "xterm";
-  TMUX_AUTO_START = "1";
   };
 
 ###########################################
@@ -74,15 +73,6 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     HISTSIZE=10000
     SAVEHIST=10000
     setopt appendhistory
-
-    if [ -z "$TMUX" ] && command -v tmux &> /dev/null; then
-    sessions=$(tmux ls 2>/dev/null)
-      if [ -z "$sessions" ]; then
-          exec tmux new -s main
-      else
-          exec tmux attach
-      fi
-    fi
   '';
   };
  
