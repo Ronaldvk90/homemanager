@@ -39,9 +39,8 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
   
-  home.sessionVariables = {
-  TERM = "xterm";
-  };
+  #home.sessionVariables = {
+  #};
 
 ###########################################
 
@@ -62,6 +61,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   
   initExtra = ''
     eval "$(oh-my-posh init zsh --config ${config.home.homeDirectory}/.poshthemes/easy-term.omp.json)"
+    export TERM=xterm
     bindkey "^[[1;3D" backward-word
     bindkey "^[[1;3C" forward-word
     bindkey  "^[[H"   beginning-of-line
