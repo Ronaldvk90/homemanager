@@ -50,6 +50,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     enable = true;
     plugins = with pkgs.vimPlugins; [ vim-airline ];
     settings = { ignorecase = true; };
+    defaultEditor = true;
     extraConfig = ''
       set mouse=a
     '';
