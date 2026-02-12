@@ -61,7 +61,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   
   initExtra = ''
     eval "$(oh-my-posh init zsh --config ${config.home.homeDirectory}/.poshthemes/easy-term.omp.json)"
-    export TERM=xterm
+    export TERM=linux
     bindkey "^[[1;3D" backward-word
     bindkey "^[[1;3C" forward-word
     bindkey  "^[[H"   beginning-of-line
