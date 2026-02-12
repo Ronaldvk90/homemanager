@@ -1,7 +1,20 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+  let
+    flathubApps = [
+     "com.vscodium.codium"
+     "org.gnome.Podcasts"
+    ];
 
-{
+in {
+home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  ${pkgs.flatpak}/bin/flatpak remote-add --user --if-not-exists flathub \
+    https://flathub.org/repo/flathub.flatpakrepo
+
+  ${pkgs.flatpak}/bin/flatpak install --user -y flathub \
+    ${lib.concatStringsSep " " flathubApps}
+'';
+  
   home.username = "ronald";
   home.homeDirectory = "/home/ronald";
   home.stateVersion = "25.11";
