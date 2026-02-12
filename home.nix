@@ -49,6 +49,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
 
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
     extraConfig = ''
       set number relativenumber
       set mouse=a
