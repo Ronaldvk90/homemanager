@@ -1,0 +1,7 @@
+output DP-1 resolution 1920x1200 position 0,0
+output DVI-D-1 resolution 1920x1200 position 1920,0
+output DVI-D-2 resolution 1920x1200 position 3840,0
+
+workspace 1 output DP-1
+workspace 2 output DVI-D-1
+workspace 3 output DVI-D-2

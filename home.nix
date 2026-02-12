@@ -32,6 +32,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
 
   home.file = {
     ".config/sway/config".source = ./configs/sway/config;
+    ".config/sway/config.d/marty".source = ./configs/sway/config.d/marty;
     ".config/foot/foot.ini".source = ./configs/foot/foot.ini;
     ".config/swaybar/swaybar.sh".source = ./configs/swaybar/swaybar.sh;
     ".tmux.conf".source = ./configs/tmux/tmux.conf;
