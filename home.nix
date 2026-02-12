@@ -46,16 +46,15 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   };
 
 ###########################################
-  programs.vim = {
+
+  programs.neovim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ vim-airline ];
-    settings = { ignorecase = true; };
-    defaultEditor = true;
     extraConfig = ''
+      set number relativenumber
       set mouse=a
     '';
   };
-
+  
   programs.zsh = {
     enable = true;
     enableCompletion = true;
