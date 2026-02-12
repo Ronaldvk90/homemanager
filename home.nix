@@ -27,8 +27,6 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     dvdplusrwtools
     cdrtools
     libreoffice
-    _1password-cli
-    _1password-gui
   ];
 
   home.file = {
