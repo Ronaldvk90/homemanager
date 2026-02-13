@@ -45,13 +45,31 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
 ###########################################
 
   programs.neovim = {
+    viAlias = true;
+    vimAlias = true;
     enable = true;
     defaultEditor = true;
     extraConfig = ''
       set number relativenumber
       set mouse=a
     '';
-  };
+    plugins = [
+      pkgs.vimPlugins.nvim-tree-lua
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    ];
+
+    extraLuaConfig = ''
+      require("nvim-tree").setup({})
+
+      -- Open automatisch bij starten
+      vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          require("nvim-tree.api").tree.open()
+        end,
+      })
+    '';
+};
+  
   
   programs.zsh = {
     enable = true;
