@@ -39,9 +39,8 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
   
-  home.sessionVariables = {
-    TERM = "xterm";
-  };
+  #home.sessionVariables = {
+  #};
 
 ###########################################
 
