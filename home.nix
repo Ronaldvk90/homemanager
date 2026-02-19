@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 
-in {
+  {
   home.username = "ronald";
   home.homeDirectory = "/home/ronald";
   home.stateVersion = "25.11";
