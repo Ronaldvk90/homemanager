@@ -1,75 +1,19 @@
 { config, pkgs, lib, ... }:
 
-  let
-    flathubApps = [
-     "com.vscodium.codium"
-     "org.gnome.Podcasts"
-    ];
-
 in {
-home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
-  ${pkgs.flatpak}/bin/flatpak remote-add --user --if-not-exists flathub \
-    https://flathub.org/repo/flathub.flatpakrepo
-
-  ${pkgs.flatpak}/bin/flatpak install --user -y flathub \
-    ${lib.concatStringsSep " " flathubApps}
-'';
-  
   home.username = "ronald";
   home.homeDirectory = "/home/ronald";
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
     oh-my-posh
-    gzdoom
-    dosbox
-    pcsx2
-    steam
-    dvdplusrwtools
-    cdrtools
-    libreoffice
   ];
 
   home.file = {
-    ".config/sway/config".source = ./configs/sway/config;
-    ".config/sway/config.d/marty".source = ./configs/sway/config.d/marty;
-    ".config/foot/foot.ini".source = ./configs/foot/foot.ini;
-    ".config/swaybar/swaybar.sh".source = ./configs/swaybar/swaybar.sh;
     ".tmux.conf".source = ./configs/tmux/tmux.conf;
     ".poshthemes/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
-    ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
-  
-  #home.sessionVariables = {
-  #};
 
 ###########################################
-
-  programs.neovim = {
-    viAlias = true;
-    vimAlias = true;
-    enable = true;
-    defaultEditor = true;
-    extraConfig = ''
-      set number relativenumber
-      set mouse=a
-    '';
-    plugins = [
-      pkgs.vimPlugins.nvim-tree-lua
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-    ];
-
-    extraLuaConfig = ''
-      require("nvim-tree").setup({})
-
-      -- Open automatisch bij starten
-      vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function()
-          require("nvim-tree.api").tree.open()
-        end,
-      })
-    '';
-};
-  
   
   programs.zsh = {
     enable = true;
@@ -96,8 +40,6 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     enable = true;
     settings.user.name = "Ronald van Kouwen";
     settings.user.email = "ronaldvk90@outlook.com";
-
-
   };
 
   programs.tmux = {
