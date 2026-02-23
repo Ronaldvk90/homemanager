@@ -21,6 +21,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   home.packages = with pkgs; [
     oh-my-posh
     gzdoom
+    openra
     dosbox
     pcsx2
     steam
