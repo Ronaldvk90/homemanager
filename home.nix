@@ -79,7 +79,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
   
-  initExtra = ''
+  initContent = ''
     eval "$(oh-my-posh init zsh --config ${config.home.homeDirectory}/.poshthemes/easy-term.omp.json)"
     bindkey "^[[1;3D" backward-word
     bindkey "^[[1;3C" forward-word
@@ -123,6 +123,6 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   };
 
 ###############################################
-  nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }
