@@ -62,7 +62,11 @@ output * bg ~/Pictures/space.jpg  fill
 #
 # Basics:
 #
-    # Wollah internet
+
+# File manager
+    bindsym $mod+n exec nemo
+
+# Wollah internet
     bindsym $mod+i exec firefox
     bindsym $mod+y exec firefox youtube.com
 
