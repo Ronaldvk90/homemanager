@@ -30,6 +30,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     libreoffice
     remmina
     vlc
+    signal-desktop
   ];
 
   home.file = {
