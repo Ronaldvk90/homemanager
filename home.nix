@@ -29,6 +29,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     cdrtools
     libreoffice
     remmina
+    vlc
   ];
 
   home.file = {
