@@ -35,6 +35,8 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     sidplayfp
     libsidplayfp
     vice
+    wineWow64Packages.stable
+    winetricks
   ];
 
   home.file = {
