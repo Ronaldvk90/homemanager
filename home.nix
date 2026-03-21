@@ -32,6 +32,8 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     vlc
     signal-desktop
     feh
+    sidplayfp
+    libsidplayfp
   ];
 
   home.file = {
