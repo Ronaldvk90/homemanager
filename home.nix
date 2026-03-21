@@ -34,6 +34,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     feh
     sidplayfp
     libsidplayfp
+    vice
   ];
 
   home.file = {
