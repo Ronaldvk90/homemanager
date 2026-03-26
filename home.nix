@@ -37,6 +37,8 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     vice
     wineWow64Packages.stable
     winetricks
+    filezilla
+    file
   ];
 
   home.file = {
