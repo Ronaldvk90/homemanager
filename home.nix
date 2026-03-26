@@ -40,10 +40,12 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     firefox
     thunderbird
     unzip
+    p7zip
     libdvdcss
     filezilla
     file
     remmina
+    pavucontrol
   ];
 
   home.file = {
@@ -75,18 +77,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
       pkgs.vimPlugins.nvim-tree-lua
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     ];
-
-    extraLuaConfig = ''
-      require("nvim-tree").setup({})
-
-      -- Open automatisch bij starten
-      vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function()
-          require("nvim-tree.api").tree.open()
-        end,
-      })
-    '';
-};
+  };
   
   
   programs.zsh = {
