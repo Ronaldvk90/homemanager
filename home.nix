@@ -35,6 +35,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     sidplayfp
     libsidplayfp
     vice
+    acme
     wineWow64Packages.stable
     winetricks
     firefox
