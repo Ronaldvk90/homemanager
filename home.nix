@@ -47,6 +47,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     file
     remmina
     pavucontrol
+    wimlib
   ];
 
   home.file = {
