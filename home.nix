@@ -48,6 +48,8 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     remmina
     pavucontrol
     wimlib
+    alsa-utils
+    audacity
   ];
 
   home.file = {
