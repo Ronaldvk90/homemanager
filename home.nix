@@ -62,7 +62,12 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ".poshthemes/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
     ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
-  
+
+  home.activation.InstallHackFonts =
+    lib.hm.dag.entryAfter [ "installPackages" ] ''
+      ${pkgs.oh-my-posh}/bin/oh-my-posh font install Hack
+    '';
+
   #home.sessionVariables = {
   #};
 
