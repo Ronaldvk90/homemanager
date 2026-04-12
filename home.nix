@@ -50,6 +50,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     wimlib
     alsa-utils
     audacity
+    c64-debugger
   ];
 
   home.file = {
