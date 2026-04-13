@@ -19,7 +19,6 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   home.homeDirectory = "/home/ronald";
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
-    oh-my-posh
     gzdoom
     openra
     dosbox
@@ -60,9 +59,11 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ".config/foot/foot.ini".source = ./configs/foot/foot.ini;
     ".config/swaybar/swaybar.sh".source = ./configs/swaybar/swaybar.sh;
     ".tmux.conf".source = ./configs/tmux/tmux.conf;
-    ".poshthemes/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
     ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
+
+  xdg.configFile."oh-my-posh/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
+
 
   home.activation.InstallHackFonts =
     lib.hm.dag.entryAfter [ "installPackages" ] ''
@@ -73,6 +74,11 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
   #};
 
 ###########################################
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    configFile = "${config.xdg.configHome}/oh-my-posh/easy-term.omp.json";
+  };
 
   programs.neovim = {
     viAlias = true;
@@ -88,8 +94,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     ];
   };
-  
-  
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
