@@ -12,4 +12,6 @@ interface=$(ip route get 1.1.1.1 | grep -Po '(?<=dev\s)\w+' | cut -f1 -d ' ')
 ipbulk=$(ip -4 a show br0 | grep -i inet)
 ip=$(echo "${ipbulk:9:-16}")
 
-echo \| $interface \> $ip \| Audio Device: $audio_device \> Volume: $audio_volume \| $weather \| $date_formatted
+battery=$(cat /sys/class/power_supply/BAT0/capacity)
+
+echo \| Battery $battery\% \| $interface \> $ip \| Audio Device: $audio_device \> Volume: $audio_volume \| $weather \| $date_formatted

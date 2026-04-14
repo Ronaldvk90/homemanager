@@ -56,6 +56,7 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     "./Pictures/wallpaper.jpg".source = ./Pictures/wallpaper.jpg;
     ".config/sway/config".source = ./configs/sway/config;
     ".config/sway/config.d/marty".source = ./configs/sway/config.d/marty;
+    ".config/sway/config.d/biff".source = ./configs/sway/config.d/biff;
     ".config/foot/foot.ini".source = ./configs/foot/foot.ini;
     ".config/swaybar/swaybar.sh".source = ./configs/swaybar/swaybar.sh;
     ".tmux.conf".source = ./configs/tmux/tmux.conf;
