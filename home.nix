@@ -4,17 +4,25 @@
   home.username = "ronald";
   home.homeDirectory = "/home/ronald";
   home.stateVersion = "25.11";
-  home.packages = with pkgs; [
-    oh-my-posh
-  ];
 
   home.file = {
     ".tmux.conf".source = ./configs/tmux/tmux.conf;
-    ".poshthemes/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
   };
 
+  xdg.configFile."oh-my-posh/easy-term.omp.json".source = ./configs/zsh/easy-term.omp.json;
+
+  home.activation.InstallHackFonts =
+    lib.hm.dag.entryAfter [ "installPackages" ] ''
+      ${pkgs.oh-my-posh}/bin/oh-my-posh font install Hack
+    '';
+
 ###########################################
-  
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    configFile = "${config.xdg.configHome}/oh-my-posh/easy-term.omp.json";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -22,7 +30,6 @@
     syntaxHighlighting.enable = true;
   
   initExtra = ''
-    eval "$(oh-my-posh init zsh --config ${config.home.homeDirectory}/.poshthemes/easy-term.omp.json)"
     bindkey "^[[1;3D" backward-word
     bindkey "^[[1;3C" forward-word
     bindkey  "^[[H"   beginning-of-line
