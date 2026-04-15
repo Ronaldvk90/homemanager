@@ -57,9 +57,11 @@ home.activation.flatpak = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ".config/sway/config".source = ./configs/sway/config;
     ".config/sway/config.d/marty".source = ./configs/sway/config.d/marty;
     ".config/sway/config.d/biff".source = ./configs/sway/config.d/biff;
+    ".config/sway/config.d/werkplaats".source = ./configs/sway/config.d/werkplaats;
     ".config/foot/foot.ini".source = ./configs/foot/foot.ini;
     ".config/swaybar/swaybar_marty.sh".source = ./configs/swaybar/swaybar_marty.sh;
     ".config/swaybar/swaybar_biff.sh".source = ./configs/swaybar/swaybar_biff.sh;
+    ".config/swaybar/swaybar_werkplaats.sh".source = ./configs/swaybar/swaybar_werkplaats.sh;
     ".tmux.conf".source = ./configs/tmux/tmux.conf;
     ".config/pipewire/pipewire.conf.d/zeroconf-discover.conf".source = ./configs/pipewire/zeroconf-discover.conf;
   };
