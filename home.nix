@@ -54,6 +54,7 @@
     gnome-podcasts
     vscodium
     whatsapp-electron
+    rbdoom-3-bfg
   ];
 
   home.file = {
