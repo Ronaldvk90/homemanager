@@ -78,6 +78,10 @@
       ${pkgs.oh-my-posh}/bin/oh-my-posh font install Hack
     '';
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   #home.sessionVariables = {
   #};
 
