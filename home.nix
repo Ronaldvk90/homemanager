@@ -83,8 +83,9 @@
     "$HOME/.local/bin"
   ];
 
-  #home.sessionVariables = {
-  #};
+  home.sessionVariables = {
+    PODMAN_COMPOSE_WARNING_LOGS = "false";
+  };
 
 ###########################################
   programs.oh-my-posh = {
