@@ -19,7 +19,8 @@
   # Suppress podman warnings
   home.sessionVariables = {
     PODMAN_COMPOSE_WARNING_LOGS = "false";
-  };`
+  };
+
 ###########################################
   programs.oh-my-posh = {
     enable = true;
