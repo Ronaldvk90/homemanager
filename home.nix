@@ -15,7 +15,11 @@
     lib.hm.dag.entryAfter [ "installPackages" ] ''
       ${pkgs.oh-my-posh}/bin/oh-my-posh font install Hack
     '';
-
+  
+  # Suppress podman warnings
+  home.sessionVariables = {
+    PODMAN_COMPOSE_WARNING_LOGS = "false";
+  };`
 ###########################################
   programs.oh-my-posh = {
     enable = true;
