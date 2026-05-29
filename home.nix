@@ -18,7 +18,7 @@
   
   home.username = "ronald";
   home.homeDirectory = "/home/ronald";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
   home.packages = with pkgs; [
     gzdoom
     openra
