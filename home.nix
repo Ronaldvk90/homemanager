@@ -3,7 +3,7 @@
   {
   home.username = "ronald";
   home.homeDirectory = "/home/ronald";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   home.file = {
     ".tmux.conf".source = ./configs/tmux/tmux.conf;
