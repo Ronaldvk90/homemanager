@@ -55,6 +55,7 @@
     vscodium
     whatsapp-electron
     rbdoom-3-bfg
+    handbrake
   ];
 
   home.file = {
