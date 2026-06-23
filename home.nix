@@ -56,6 +56,7 @@
     whatsapp-electron
     rbdoom-3-bfg
     handbrake
+    dmg2img
   ];
 
   home.file = {
